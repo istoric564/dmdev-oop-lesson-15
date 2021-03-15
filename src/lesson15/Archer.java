@@ -1,8 +1,10 @@
 package lesson15;
 
+import Lesson18.weapon.RangeWeapon;
+
 import java.util.Random;
 
-public class Archer extends Hero {
+public class Archer<T extends RangeWeapon> extends Hero<T> {
     private Wolf wolf;
 
     public Archer(String name, int damage, int health) {

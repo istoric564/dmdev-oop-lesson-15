@@ -1,12 +1,15 @@
 package lesson15;
 
+import Lesson18.weapon.Weapon;
+
 import java.util.Random;
 
-public abstract class Hero  {
+public abstract class Hero <T extends Weapon> {
 
     private String name;
     private int damage;
     private int health;
+    private T weapon;
 
     public Hero(String name, int damage, int health) {
         this.name = name;
@@ -40,5 +43,11 @@ public abstract class Hero  {
         this.health = health;
     }
 
+    public T getWeapon() {
+        return weapon;
+    }
 
+    public void setWeapon(T weapon) {
+        this.weapon = weapon;
+    }
 }

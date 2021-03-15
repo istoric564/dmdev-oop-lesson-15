@@ -1,8 +1,10 @@
 package lesson15;
 
+import Lesson18.weapon.MeleeWeapon;
+
 import java.util.Random;
 
-public class Warrior extends Hero {
+public class Warrior<T extends MeleeWeapon> extends Hero<T> {
     public Warrior(String name, int damage, int health) {
         super(name, damage, health);
     }
