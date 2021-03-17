@@ -1,23 +1,45 @@
 package Lesson18;
 
-public class List {
+import java.util.Iterator;
 
-    private Object[] objects;
+public class List<T> implements Iterable<T> {
+
+    private T[] objects;
     private int size;
 
     public List(int initialSize){
-        this.objects = new Object[initialSize];
+        this.objects = (T[]) new Object[initialSize];
     }
 
-    public void add(Object element){
+    public void add(T element){
         objects[size++] = element;
     }
 
-    public Object get(int index){
+    public T get(int index){
         return objects[index];
     }
 
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new listIterator();
+    }
+
+    private class listIterator implements Iterator<T>{
+
+        private int currentIndex;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size;
+        }
+
+        @Override
+        public T next() {
+            return objects[currentIndex++];
+        }
     }
 }
